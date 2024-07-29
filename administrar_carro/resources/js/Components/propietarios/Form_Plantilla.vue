@@ -6,6 +6,8 @@ export default {
 
 <script setup>
 import FormSection from "@/Components/FormSection.vue";
+import PrimaryButton from "../PrimaryButton.vue";
+import InputError from "../InputError.vue";
 
 defineProps({
     form: {
@@ -43,157 +45,183 @@ defineEmits(["submit"]);
                 <div class="p-3">
                     <form class="w-full">
                         <div class="flex flex-wrap -mx-3 mb-6">
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <div class="w-full px-3">
                                 <label
-                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1"
-                                    for="grid-first-name"
+                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1 py-1"
+                                    for="documento"
+                                    id="documento"
                                 >
-                                    First Name
+                                    Documento
                                 </label>
                                 <input
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500"
-                                    id="grid-first-name"
+                                    class="appearance-none block w-full bg-white-200 text-gray-700 border border-blue-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500"
+                                    id="documento"
+                                    v-model="form.documento"
                                     type="text"
-                                    placeholder="Jane"
                                 />
-                                <p class="text-red-500 text-xs italic">
-                                    Please fill out this field.
-                                </p>
-                            </div>
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label
-                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1"
-                                    for="grid-first-name"
+                                <InputError
+                                    class="text-red-500 text-xs italic"
+                                    :message="$page.props.errors.documento"
                                 >
-                                    First Name
-                                </label>
-                                <input
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500"
-                                    id="grid-first-name"
-                                    type="text"
-                                    placeholder="Jane"
-                                />
-                                <p class="text-red-500 text-xs italic">
-                                    Please fill out this field.
-                                </p>
-                            </div>
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label
-                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1"
-                                    for="grid-first-name"
-                                >
-                                    First Name
-                                </label>
-                                <input
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500"
-                                    id="grid-first-name"
-                                    type="text"
-                                    placeholder="Jane"
-                                />
-                                <p class="text-red-500 text-xs italic">
-                                    Please fill out this field.
-                                </p>
-                            </div>
-                            <div class="w-full md:w-1/2 px-3">
-                                <label
-                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1"
-                                    for="grid-last-name"
-                                >
-                                    Last Name
-                                </label>
-                                <input
-                                    class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
-                                    id="grid-last-name"
-                                    type="text"
-                                    placeholder="Doe"
-                                />
+                                </InputError>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6">
-                            <div class="w-full px-3">
+                            <div class="w-full md:w-1/2 px-3">
                                 <label
-                                    class="block uppercase tracking-wide text-grey-darker text-xs font-light mb-1"
-                                    for="grid-password"
+                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1 py-1"
+                                    for="primer_nombre"
                                 >
-                                    Password
+                                    Primer Nombre
                                 </label>
                                 <input
-                                    class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-grey"
-                                    id="grid-password"
-                                    type="password"
-                                    placeholder="******************"
+                                    class="appearance-none block w-full bg-white-200 text-grey-darker border border-blue-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                    id="primer_nombre"
+                                    type="text"
+                                    v-model="form.primer_nombre"
                                 />
-                                <p class="text-grey-dark text-xs italic">
-                                    Make it as long and as crazy as you'd like
-                                </p>
+                                <InputError
+                                    class="text-red-500 text-xs italic"
+                                    :message="$page.props.errors.primer_nombre"
+                                >
+                                </InputError>
+                            </div>
+
+                            <div class="w-full md:w-1/2 px-3">
+                                <label
+                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1 py-1"
+                                    for="segundo_nombre"
+                                >
+                                    Segundo Nombre
+                                </label>
+                                <input
+                                    class="appearance-none block w-full bg-white-200 text-grey-darker border border-blue-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                    id="segundo_nombre"
+                                    type="text"
+                                    v-model="form.segundo_nombre"
+                                />
+                                <InputError
+                                    class="text-red-500 text-xs italic"
+                                    :message="$page.props.errors.segundo_nombre"
+                                >
+                                </InputError>
+                            </div>
+
+                            <div class="w-full md:w-1/2 px-3">
+                                <label
+                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light py-2"
+                                    for="primer_apellido"
+                                >
+                                    Primer Apellido
+                                </label>
+                                <input
+                                    class="appearance-none block w-full bg-white-200 text-grey-darker border border-blue-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                    id="primer_apellido"
+                                    type="text"
+                                    v-model="form.primer_apellido"
+                                />
+                                <InputError
+                                    class="text-red-500 text-xs italic"
+                                    :message="
+                                        $page.props.errors.primer_apellido
+                                    "
+                                >
+                                </InputError>
+                            </div>
+
+                            <div class="w-full md:w-1/2 px-3">
+                                <label
+                                    class="block uppercase tracking-wide text-gray-700 text-xs font-light py-2"
+                                    for="segundo_apellido"
+                                >
+                                    Segundo Apellido
+                                </label>
+                                <input
+                                    class="appearance-none block w-full bg-white-200 text-grey-darker border border-blue-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                    id="primer_apellido"
+                                    type="text"
+                                    v-model="form.segundo_apellido"
+                                />
+                                <InputError
+                                    class="text-red-500 text-xs italic"
+                                    :message="
+                                        $page.props.errors.segundo_apellido
+                                    "
+                                >
+                                </InputError>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <label
                                     class="block uppercase tracking-wide text-grey-darker text-xs font-light mb-1"
-                                    for="grid-city"
+                                    for="email"
                                 >
-                                    City
+                                    Email
                                 </label>
                                 <input
                                     class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
-                                    id="grid-city"
-                                    type="text"
-                                    placeholder="Albuquerque"
+                                    id="email"
+                                    v-model="form.email"
+                                    type="email"
                                 />
+                                <InputError
+                                    class="text-red-500 text-xs italic"
+                                    :message="$page.props.errors.email"
+                                >
+                                </InputError>
                             </div>
+
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <label
                                     class="block uppercase tracking-wide text-grey-darker text-xs font-light mb-1"
-                                    for="grid-state"
+                                    for="numero_telefon"
                                 >
-                                    State
-                                </label>
-                                <div class="relative">
-                                    <select
-                                        class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey"
-                                        id="grid-state"
-                                    >
-                                        <option>New Mexico</option>
-                                        <option>Missouri</option>
-                                        <option>Texas</option>
-                                    </select>
-                                    <div
-                                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-grey-darker"
-                                    >
-                                        <svg
-                                            class="fill-current h-4 w-4"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20"
-                                        >
-                                            <path
-                                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                                            />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label
-                                    class="block uppercase tracking-wide text-grey-darker text-xs font-light mb-1"
-                                    for="grid-zip"
-                                >
-                                    Zip
+                                    Número Celular
                                 </label>
                                 <input
                                     class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
-                                    id="grid-zip"
+                                    id="text"
+                                    v-model="form.numero_telefon"
                                     type="text"
-                                    placeholder="90210"
                                 />
+                                <InputError
+                                    class="text-red-500 text-xs italic"
+                                    :message="$page.props.errors.numero_telefon"
+                                >
+                                </InputError>
+                            </div>
+
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <label
+                                    class="block uppercase tracking-wide text-grey-darker text-xs font-light mb-1"
+                                    for="direccion"
+                                >
+                                    Dirección
+                                </label>
+                                <input
+                                    class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                                    id="direccion"
+                                    v-model="form.direccion"
+                                    type="text"
+                                />
+                                <InputError
+                                    class="text-red-500 text-xs italic"
+                                    :message="$page.props.errors.direccion"
+                                >
+                                </InputError>
                             </div>
                         </div>
                     </form>
                 </div>
-
                 <!--/Grid Form-->
             </div>
+        </template>
+
+        <template #actions>
+            <PrimaryButton>
+                {{ updating ? "Actualizar" : "Crear" }}
+            </PrimaryButton>
         </template>
     </FormSection>
 </template>
