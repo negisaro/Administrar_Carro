@@ -31,6 +31,7 @@ class PropietarioRequest extends FormRequest
             'email' => ['required', Rule::unique(table: 'propietarios', column: 'email')->ignore(id: request('propietarios'), idColumn: 'id')],
             'numero_telefon' => ['string'],
             'direccion' => ['string'],
+            'is_active' => [''],
         ];
     }
 

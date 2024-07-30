@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('numero_telefon')->nullable();;
             $table->string('direccion')->nullable();
             $table->string('foto_perfil', 2048)->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }
